@@ -10,7 +10,7 @@ using namespace std;
 int main() {
     // ### Takes in file as string vector then convert to integer. ###
     ifstream infile;
-    infile.open("integers.txt");
+    infile.open("test1.dat");
     vector<string> numStr;
     vector<int> numVec;
 
@@ -45,8 +45,22 @@ int main() {
         else if(numInt[i] < min) {min = numInt[i];}
     }
 
-    // ### Found min and max values within the array. ###
+    // ### Making ppm file. ###
+    int w = numInt[0];
+    int h = numInt[1];
 
+    ofstream img ("pic.ppm");
+    img << "P3" << endl;
+    img << w << " " << h << endl;
+    img <<  max << endl;
+
+    for(int b = 2; b < numSize; b += w){
+        for(int c = b; c < w + b && c < numSize; c++){
+            img << numInt[c] << " ";
+        }
+        img << endl;
+
+    }
 
     return 0;
 }
