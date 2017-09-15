@@ -10,7 +10,7 @@ using namespace std;
 int main() {
     // ### Takes in file. ###
     ifstream infile;
-    infile.open("test1.dat");
+    infile.open("integers.txt");
     vector<string> numStr;
     vector<int> numVec;
 
@@ -30,6 +30,17 @@ int main() {
     cout << numStr.front() << endl;
     cout << numStr.back() << endl;
     cout << numStr.at(3) << endl;
+
+    int numSize = numStr.size();
+    for(int a=0; a < numSize; a++){
+        int n = atoi(numStr.at(a).c_str());
+        numVec.push_back(n);
+    }
+
+    cout << numStr.front() << endl;
+    cout << numStr.back() << endl;
+    cout << numStr.at(3) << endl;
+    cout << numSize << endl;
 
 
     /*
