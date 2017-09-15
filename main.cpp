@@ -66,15 +66,44 @@ int main() {
     img.clear();
 
     // ### Greedy algorithm
-    int now, up, mid, down;
+    int now, up, mid, dn;
     cout << "Insert left most position: \n";
     cin >> now;
     now = ((now * w) + 2);
-    for(int d = 0; d < w; d++){
-        now = ((now  w) + 2);
-        up = ((now - w) + 1);
+    for(int d = 1; d < w; d++){
+        up = now - w + 1;
         mid = now + 1;
+        dn = now + w + 1;
+
+        if(now > 0 && numInt[up] <= numInt[mid] && numInt[up] <= numInt[dn]){
+            now = up;
+        }
+        else if(now < numSize && numInt[dn] <= numInt[mid] && numInt[dn] <= numInt[up]){
+            now = dn;
+        }
+        else{now = mid;}
+        numInt[now] = max;
     }
+
+
+    img.open("pic1.ppm");
+    img << "P3" << endl;
+    img << w << " " << h << endl;
+    img <<  max << endl;
+
+    for(int b = 2; b < numSize; b += w){
+        for(int c = b; c < w + b && c < numSize; c++){
+            if(numInt[c] == max ){
+                img << max  <<" "<< 0 <<" "<< 0 << "\t";
+            }
+            else
+            img << numInt[c]  <<" "<< numInt[c]  <<" "<< numInt[c]  << "\t";
+        }
+        img << endl;
+
+    }
+    img.close();
+    img.clear();
 
     return 0;
 }
