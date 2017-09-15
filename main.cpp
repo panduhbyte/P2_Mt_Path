@@ -1,25 +1,23 @@
 #include <iostream>
+#include <cmath>
 #include <fstream>
-//#include<string>
+#include <cstring>
 #include <vector>
+
 using namespace std;
 
-int main(){
+int main() {
+    ifstream infile;
+    infile.open("F:\\Code_Projects\\P2_MtPath\\integers.txt");
 
-    ifstream inFile;
-    inFile.open("integers.txt");
-
-    /*
-    int cntInt;
-    inFile >> cntInt;
-    int numb[cntInt];
-    for(int a = 0; a < cntInt; a++) inFile >> numb[a];
-     */
-
-    inFile.close();
-    cout << numb[1];
-
-
-
+    if(infile.fail()){
+        cout<<"Oops\n";
+    }
+    else{
+        string s;
+        while(getline(infile,s)){
+            cout<<s<<endl;
+        }
+    }
     return 0;
 }

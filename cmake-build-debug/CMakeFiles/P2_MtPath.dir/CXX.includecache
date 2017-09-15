@@ -9,7 +9,11 @@
 F:/Code_Projects/P2_MtPath/main.cpp
 iostream
 -
+cmath
+-
 fstream
+-
+cstring
 -
 vector
 -
