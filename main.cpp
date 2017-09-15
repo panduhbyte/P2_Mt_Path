@@ -6,11 +6,14 @@
 #include <string>
 
 using namespace std;
+/*
+ * P2 Charles Valdez Mountain Path
+ */
 
 int main() {
     // ### Takes in file as string vector then convert to integer. ###
     ifstream infile;
-    infile.open("colorado2.dat");
+    infile.open("colorado1.dat");
     vector<string> numStr;
     vector<int> numVec;
 
@@ -32,7 +35,6 @@ int main() {
         int n = atoi(numStr.at(a).c_str());
         numVec.push_back(n);
     }
-
 
     // ### Vector integer converted to integer array then find max. ###
     int* numInt = &numVec[0];
@@ -60,12 +62,11 @@ int main() {
             img << numInt[c]  <<" "<< numInt[c]  <<" "<< numInt[c]  << "\t";
         }
         img << endl;
-
     }
     img.close();
     img.clear();
 
-    // ### Greedy algorithm
+    // ### Greedy algorithm. ###
     int now, up, mid, dn;
     cout << "Insert left most position: \n";
     cin >> now;
@@ -85,7 +86,7 @@ int main() {
         numInt[now] = max;
     }
 
-
+    // ### Making outlined ppm. ###
     img.open("pic1.ppm");
     img << "P3" << endl;
     img << w << " " << h << endl;
@@ -100,7 +101,6 @@ int main() {
             img << numInt[c]  <<" "<< numInt[c]  <<" "<< numInt[c]  << "\t";
         }
         img << endl;
-
     }
     img.close();
     img.clear();
