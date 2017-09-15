@@ -49,18 +49,21 @@ int main() {
     int w = numInt[0];
     int h = numInt[1];
 
-    ofstream img ("pic.ppm");
+    ofstream img;
+    img.open("pic.ppm");
     img << "P3" << endl;
     img << w << " " << h << endl;
     img <<  max << endl;
 
     for(int b = 2; b < numSize; b += w){
         for(int c = b; c < w + b && c < numSize; c++){
-            img << numInt[c] << " ";
+            img << numInt[c]  <<" "<< numInt[c]  <<" "<< numInt[c]  << "\t";
         }
         img << endl;
 
     }
+    img.close();
+    img.clear();
 
     return 0;
 }
