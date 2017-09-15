@@ -3,39 +3,58 @@
 #include <fstream>
 #include <cstring>
 #include <vector>
+#include <string>
 
 using namespace std;
 
 int main() {
+    // ### Takes in file. ###
     ifstream infile;
+    infile.open("test1.dat");
+    vector<string> numStr;
     vector<int> numVec;
-    infile.open("integers.txt");
 
     if(infile.fail()){
         cout<<"Oops\n";
+        return 0;
     }
     else{
-        int value;
+        string value;
         while(infile >> value){
-            numVec.push_back(value);
+            numStr.push_back(value);
         }
     }
     infile.close();
     infile.clear();
 
-    cout << numVec.front() << endl;
-    cout << numVec.back() << endl;
-    cout << numVec.at(3) << endl;
+    cout << numStr.front() << endl;
+    cout << numStr.back() << endl;
+    cout << numStr.at(3) << endl;
 
+
+    /*
+
+    // ### Integers put into vector, then made into an integer array. ###
     int* numInt = &numVec[0];
 
-    cout << "#######" << endl;
-    cout << numInt[0] << endl;
-    cout << numInt[1] << endl;
-    cout << numInt[2] << endl;
-    cout << numInt[3] << endl;
-    cout << numInt[4] << endl;
-    cout << numInt[5] << endl;
+    int max = numInt[0];
+    int min = numInt[0];
+    int numSize = numVec.size();
 
+    for (int i = 0; i < numSize; i++)
+    {
+        if (numInt[i] > max)
+        {
+            max = numInt[i];
+        }
+        else if (numInt[i] < min)
+        {
+            min = numInt[i];
+        }
+    }
+
+    // ### Found min and max values within the array. ###
+
+     */
     return 0;
 }
