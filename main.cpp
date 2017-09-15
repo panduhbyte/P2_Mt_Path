@@ -10,7 +10,7 @@ using namespace std;
 int main() {
     // ### Takes in file as string vector then convert to integer. ###
     ifstream infile;
-    infile.open("test1.dat");
+    infile.open("colorado2.dat");
     vector<string> numStr;
     vector<int> numVec;
 
@@ -64,6 +64,17 @@ int main() {
     }
     img.close();
     img.clear();
+
+    // ### Greedy algorithm
+    int now, up, mid, down;
+    cout << "Insert left most position: \n";
+    cin >> now;
+    now = ((now * w) + 2);
+    for(int d = 0; d < w; d++){
+        now = ((now  w) + 2);
+        up = ((now - w) + 1);
+        mid = now + 1;
+    }
 
     return 0;
 }
